@@ -1,0 +1,94 @@
+{% capture locale %}{{ page.url | truncate: 3, "" | remove: "/" }}{% endcapture %}
+{% unless site.authorized_locales contains locale %}
+    {% assign locale = site.default_locale %}
+{% endunless %}
+{% assign data = site.data.locales[locale] %}
+<!DOCTYPE html>
+<html lang='{{locale}}'>
+<head>
+  <meta charset='utf-8' />
+  <meta name="Description" CONTENT="{{ site.data.locales[locale].description }}">
+  <link rel="icon" type="image/png" href="/favicon.png"/>
+  <link href="https://plus.google.com/101809280544649964042" rel="publisher" />
+  <!--[if IE]><link rel="shortcut icon" href="/favicon.ico"/><![endif]-->
+  <!--[if IE]> <script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script> <![endif]-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="/assets/css/style.css"/>
+  <link rel="image_src" href="http://jrochelly.com/assets/img/logo.png">
+  <meta property="fb:admins" content="1344367235" />
+  <meta property="og:url" content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+  <meta content="{{ site.title }}" property="og:site_name">
+  <meta content="Jakson Moura" property="article:author">
+  <meta content="http://jrochelly.com/assets/img/logo.png" property="og:image">
+  <meta content="{{ page.content | escape | truncatewords:75}}" property="og:description">
+  <meta content="website" property="og:type">
+  {% if page.title %}
+  <meta content="{{ page.title }}" property="og:title">
+  {% else %}
+  <meta content="{{ site.title }}" property="og:title">
+  {% endif %}
+  {% if page.date %}
+  <meta content="{{ page.date | date_to_xmlschema }}" property="article:published_time">
+  {% endif %}
+  {% if page.title %}
+  <title>{{ page.title }} &ndash; Jakson Moura</title>
+  {% else %}
+  <title>Jakson Moura</title>
+  {% endif %}
+  <script src="/assets/js/jquery-2.1.4.min.js"></script>
+</head>
+<body>
+  <!-- <div class="langs">
+    <div class="br"><a href="/br"><img src="/assets/img/br_flag.png" alt="Idioma - Português"></a></div>
+    <div class="en"><a href="/?lang=en"><img src="/assets/img/en_flag.png" alt="Language - English"></a></div>
+  </div> -->
+  <div id="wrapper">
+    <div class="landing landing--mini">
+      {% include header.html %}
+    </div>
+    <section class="archive_posts">
+      <div class="archive_body">
+        {{ content }}
+      </div>
+    </section>
+
+    {% include footer.html %}
+
+  </div>
+
+
+  <script>
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-23777483-1']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+  <script src="/assets/js/parallax.js"></script>
+  <script>
+    $(document).ready(function(){
+
+      $('.menu__btn a').on('click', function(e){
+        $('.mobile-menu').toggleClass('show_menu');
+        $('.langs').toggleClass('show_langs');
+        return false;
+      });
+
+      $('a[href*="/#"]').on("click", function(e){
+        var href = $(this).attr("href");
+        if (href.indexOf("/br/#") == -1) {
+          var href = href.slice(1, href.length);
+        } else {
+          var href = href.slice(4, href.length);
+        }
+        var anchor = $( href );
+        $('html,body').animate({scrollTop: (anchor.offset().top)},'slow');
+        return false;
+      });
+    });
+  </script>
+</body>
+</html>

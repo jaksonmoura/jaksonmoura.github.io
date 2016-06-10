@@ -1,0 +1,19 @@
+future: false
+markdown: rdiscount
+highlighter: pygments
+permalink:  /:categories/posts/:year/:month/:title
+paginate: 20
+paginate_path: "/page:num"
+paginate_per_category: true
+default_category: "br"
+
+sass:
+  sass_dir: assets/css
+  style: :compressed
+
+exclude: ["node_modules", "README.md", "package.json", ".gitignore", "gulpfile.js"]
+
+url: http://jaksonmoura.com
+default_locale:     "br"
+authorized_locales: ["en", "br"]
+gems: [jekyll-paginate]
