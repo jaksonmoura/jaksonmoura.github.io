@@ -765,12 +765,12 @@ footer {
     filter: invert(100%);
     -moz-filter: invert(100%);
     -webkit-filter: invert(100%);
-    height: 100px;
+    height: 40px;
     margin-top: 15px;
     opacity: .4;
     margin-bottom: 20px; }
     footer #footer__logo img {
-      width: 100%; }
+      width: 80px; }
   footer h2 {
     color: #888;
     text-transform: uppercase;
