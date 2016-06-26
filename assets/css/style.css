@@ -503,12 +503,16 @@ a {
     font-size: 20px;
     margin-bottom: 40px; }
   .hero .me {
-    position: relative; }
+    position: relative;
+    float: left;
+    width: 100%;
+    display: block;
+    height: 100px; }
     .hero .me .face {
-      position: absolute;
-      left: 50px;
-      width: 250px;
-      height: 250px; }
+      width: 150px;
+      height: 150px;
+      margin-left: calc(50% - 75px);
+      position: relative; }
       .hero .me .face img {
         width: 100%;
         height: 100%;
@@ -519,15 +523,14 @@ a {
         position: absolute;
         top: -15px;
         left: -15px;
-        width: 280px;
-        height: 280px;
+        width: 180px;
+        height: 180px;
         z-index: 499;
         background: url("../img/me_bg.svg") no-repeat; }
   .hero .intro {
-    position: absolute;
-    top: 130px;
-    left: 270px;
-    width: calc( 100% - 260px);
+    margin-top: 50px;
+    text-align: center;
+    width: 100%;
     font-size: 24px;
     font-weight: 300;
     z-index: 501; }
@@ -535,11 +538,11 @@ a {
       padding: 0;
       margin: 0; }
     .hero .intro h2 {
-      font-size: 70px;
+      font-size: 40px;
       font-weight: 600;
       margin-bottom: 20px; }
     .hero .intro h3 {
-      font-size: 38px;
+      font-size: 25px;
       text-transform: uppercase; }
   .hero .hero--btn {
     float: left;
@@ -558,7 +561,7 @@ a {
   z-index: 5 !important;
   width: 100%;
   max-width: 960px;
-  margin: 180px auto;
+  margin: 150px auto;
   padding: 0;
   font-size: 1rem; }
   .hero img, .hero iframe, .hero pre {
@@ -603,29 +606,50 @@ a {
   .hero .btn-next {
     margin: 0 -10px -5px 0; }
 
+@media all and (max-width: 320px) {
+  h2 {
+    font-size: 35px !important; } }
 @media all and (min-width: 480px) {
   .hero {
     margin-bottom: 0px; } }
-@media all and (min-width: 750px) {
-  #wrapper .hero .blog_posts__body {
-    width: 95%;
-    max-width: 700px;
-    flex-direction: row;
-    justify-content: space-between; }
-  #wrapper .hero .hero--btn {
-    text-align: center;
-    position: relative; }
-    #wrapper .hero .hero--btn a {
-      float: none !important;
-      width: auto !important; }
+@media all and (min-width: 880px) {
+  .hero {
+    margin: 150px auto !important; }
 
-  .all-posts {
-    text-align: center;
-    margin-bottom: 40px; }
-    .all-posts a {
-      margin: 0 !important;
-      float: none !important;
-      width: auto !important; } }
+  .me {
+    position: relative;
+    float: left;
+    width: 100%;
+    display: block;
+    height: 100px; }
+    .me .face {
+      position: absolute !important;
+      left: 50px;
+      top: 50px;
+      width: 250px !important;
+      height: 250px !important;
+      margin-left: 0 !important; }
+      .me .face img {
+        width: 100%;
+        height: 100%;
+        z-index: 501;
+        position: relative; }
+      .me .face::before {
+        width: 280px !important;
+        height: 280px !important;
+        z-index: 499; }
+
+  .intro {
+    position: absolute !important;
+    top: 130px;
+    left: 270px;
+    width: auto !important;
+    font-size: 24px;
+    text-align: left !important; }
+    .intro h2 {
+      font-size: 70px !important; }
+    .intro h3 {
+      font-size: 38px !important; } }
 *, *:before, *:after {
   box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -905,17 +929,17 @@ footer {
 header {
   float: left;
   width: 100%;
-  height: auto;
+  height: 80px;
   margin-bottom: 20px;
   text-align: center;
   color: #fff; }
   header a {
     color: #fff; }
   header .content {
-    width: 100%;
-    max-width: 960px;
-    margin: 0 auto;
-    display: block; }
+    width: 100% !important;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row; }
   header #logo {
     margin: 20px auto;
     background: url("../img/logo.svg") no-repeat 0 0;
@@ -1026,13 +1050,7 @@ header {
 @media (min-width: 750px) {
   header {
     margin-top: 10px;
-    margin-bottom: 45px;
-    height: 80px !important; }
-    header .content {
-      width: 95% !important;
-      display: flex;
-      justify-content: space-between;
-      flex-direction: row; }
+    margin-bottom: 45px; }
     header nav {
       order: 2;
       background: none !important; }
@@ -1267,7 +1285,6 @@ header {
       background: none; } }
 .projects {
   margin-top: -150px;
-  background-size: contain;
   float: left;
   width: 100%;
   line-height: 1.8rem;
@@ -1276,8 +1293,7 @@ header {
   overflow: hidden;
   padding: 50px 5px; }
   .projects .project__body {
-    width: 100%;
-    max-width: 960px;
+    width: 80%;
     margin: 0 auto; }
   .projects .projects__head {
     float: left;
@@ -1294,23 +1310,22 @@ header {
   .projects ul {
     float: left;
     margin-bottom: 0px;
+    display: inline;
     padding: 10px;
-    margin: 0 0 0 -100px;
+    margin: 0 0 0 0;
     width: 100%;
     transition: all .7s ease-in-out; }
     .projects ul li {
       position: relative;
-      float: left;
+      clear: both;
       width: 100%;
-      max-width: 800px;
-      height: 300px;
-      display: inline;
-      padding: 5px 0;
+      display: block;
+      padding: 0;
       list-style-type: none;
       text-align: center;
       overflow: hidden;
       margin-bottom: 20px;
-      background: #eef2f3;
+      background: #fff;
       transition: all 0.3s ease-in-out;
       -webkit-transition: all 0.3s ease-in-out;
       -moz-transition: all 0.3s ease-in-out; }
@@ -1322,8 +1337,6 @@ header {
       .projects ul li:hover .project__info {
         bottom: 0;
         opacity: 1; }
-      .projects ul li:first-child {
-        height: 620px; }
       .projects ul li:last-child {
         margin-bottom: 0px; }
       .projects ul li .project__link {
@@ -1335,6 +1348,7 @@ header {
         width: 100%;
         color: #fff;
         bottom: -50px;
+        padding: 10px;
         z-index: 451;
         opacity: 0;
         background: rgba(82, 63, 140, 0.9);
@@ -1343,7 +1357,6 @@ header {
         -moz-transition: all 0.3s ease-in-out;
         line-height: 1.48; }
         .projects ul li .project__info .project__title {
-          padding: 5px;
           text-transform: uppercase;
           margin: 0; }
       .projects ul li a.project--img {
@@ -1351,13 +1364,11 @@ header {
         position: relative;
         z-index: 450;
         padding: 0;
-        width: 100%;
-        position: absolute;
-        top: 0;
-        left: 0; }
+        width: 100%; }
       .projects ul li img {
         width: auto;
-        width: 100%; }
+        width: 100%;
+        display: block; }
   .projects .more--up {
     display: none !important;
     padding: 0; }
@@ -1400,11 +1411,17 @@ header {
       display: block !important; }
     .projects .more--down {
       display: none !important; }
+    .projects .project__body {
+      width: 100% !important;
+      max-width: 960px; }
     .projects ul {
       width: 100% !important;
       margin-left: 0px; }
     .projects li {
-      width: 455px !important; }
+      width: calc((100% / 2 ) - 15px ) !important;
+      float: left !important;
+      clear: none !important;
+      margin-bottom: 14px !important; }
       .projects li:first-of-type {
         margin-right: 2%; }
       .projects li .project--info {

@@ -1,7 +1,7 @@
 header{
   float: left;
   width: 100%;
-  height: auto;
+  height: 80px;
   margin-bottom: 20px;
   text-align: center;
   color: #fff;
@@ -11,11 +11,10 @@ header{
   }
 
   .content{
-    width: 100%;
-    max-width: 960px;
-    margin: 0 auto;
-    display: block;
-    // flex-direction: row;
+    width: 100% !important;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
   }
 
   #logo{
@@ -173,14 +172,6 @@ header{
   header{
     margin-top: 10px;
     margin-bottom: 45px;
-    height: 80px !important;
-
-    .content{
-      width: 95% !important;
-      display: flex;
-      justify-content: space-between;
-      flex-direction: row;
-    }
 
     nav{
       order: 2;

@@ -1,7 +1,5 @@
 .projects{
-  // background: $purple_dark url('/assets/img/projectsbg.png') no-repeat;
   margin-top: -150px;
-  background-size: contain;
   float: left;
   width: 100%;
   line-height: 1.8rem;
@@ -11,8 +9,7 @@
   padding: 50px 5px;
 
   .project__body{
-    width: 100%;
-    max-width: 960px;
+    width: 80%;
     margin: 0 auto;
   }
 
@@ -36,23 +33,22 @@
   ul{
     float: left;
     margin-bottom: 0px;
+    display: inline;
     padding: 10px;
-    margin: 0 0 0 -100px;
+    margin: 0 0 0 0;
     width: 100%;
     transition: all .7s ease-in-out;
     li{
       position: relative;
-      float: left;
+      clear: both;
       width: 100%;
-      max-width: 800px;
-      height: 300px;
-      display: inline;
-      padding: 5px 0;
+      display: block;
+      padding: 0;
       list-style-type: none;
       text-align: center;
       overflow: hidden;
       margin-bottom: 20px;
-      background:#eef2f3;
+      background:#fff;
       @include transition(all, .3s, ease-in-out);
 
       &{
@@ -63,6 +59,7 @@
       &:hover {
         .project--img{
           opacity:  .8;
+
         }
 
         .project__info{
@@ -73,7 +70,7 @@
 
 
       &:first-child{
-        height: 620px;
+        // height: 69.4vh;
       }
 
       &:last-child{
@@ -91,6 +88,7 @@
         width: 100%;
         color: #fff;
         bottom:  -50px;
+        padding: 10px;
         z-index: 451;
         opacity: 0;
         background: rgba($purple_darker, .9);
@@ -98,7 +96,6 @@
         line-height: 1.48;
 
         .project__title{
-          padding: 5px;
           text-transform: uppercase;
           margin: 0;
         }
@@ -111,14 +108,12 @@
         z-index: 450;
         padding: 0;
         width: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
       }
 
       img{
         width: auto;
         width: 100%;
+        display: block;
       }
     }
   }
@@ -180,6 +175,11 @@
       display: none !important;
     }
 
+    .project__body{
+      width: 100% !important;
+      max-width: 960px;
+    }
+
 
     // .projects__head{
     //   width: 40%;
@@ -196,7 +196,10 @@
       margin-left: 0px;
     }
     li{
-      width: 455px !important;
+      width: calc((100% / 2 ) - 15px ) !important;
+      float: left !important;
+      clear: none !important;
+      margin-bottom: 14px !important;
       &:first-of-type{
         margin-right: 2%;
       }
